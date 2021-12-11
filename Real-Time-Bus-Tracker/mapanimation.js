@@ -3,7 +3,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoiamVzc21vbnR5IiwiYSI6ImNrd2wxNzFqNzBicTQyeHRiM
 
 let map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite',
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
     center: [-71.104081, 42.365554],
     zoom: 12,
 });
@@ -13,8 +13,7 @@ map.addControl(new mapboxgl.NavigationControl());
 async function run(){
     // get bus data    
 	const locations = await getBusLocations();
-	console.log(new Date());
-	console.log(locations);
+	newMarker(locations);
 
 	// timer
 	setTimeout(run, 15000);
